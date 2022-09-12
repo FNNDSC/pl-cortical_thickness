@@ -19,7 +19,6 @@ on:
 jobs:
   test:
     name: Unit tests
-    if: false  # CI disabled by default, delete this line to enable CI
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v3
@@ -123,8 +122,7 @@ jobs:
             localhost:5000/${{ steps.determine.outputs.dock_image }}
             docker.io/${{ steps.determine.outputs.dock_image }}
             ghcr.io/${{ steps.determine.outputs.dock_image }}
-          # if non-x86_84 architectures are supported, add them here
-          platforms: linux/amd64  #,linux/arm64,linux/ppc64le
+          platforms: linux/amd64,linux/arm64,linux/ppc64le
           push: true
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache

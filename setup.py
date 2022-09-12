@@ -1,18 +1,18 @@
 from setuptools import setup
 
 setup(
-    name='chris-plugin-template',
+    name='cortical_thickness',
     version='1.0.0',
-    description='A ChRIS DS plugin template',
+    description='A ChRIS plugin wrapper for cortical_thickness and friends',
     author='FNNDSC',
     author_email='dev@babyMRI.org',
-    url='https://github.com/FNNDSC/python-chrisapp-template',
-    py_modules=['app'],
+    url='https://github.com/FNNDSC/pl-cortical_thickness',
+    py_modules=['surf_results'],
     install_requires=['chris_plugin'],
     license='MIT',
     entry_points={
         'console_scripts': [
-            'commandname = app:main'
+            'surf_results = surf_results:main'
         ]
     },
     classifiers=[

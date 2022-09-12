@@ -4,10 +4,10 @@
 FROM docker.io/python:3.10.6-slim-bullseye
 
 LABEL org.opencontainers.image.authors="FNNDSC <dev@babyMRI.org>" \
-      org.opencontainers.image.title="ChRIS Plugin Title" \
-      org.opencontainers.image.description="A ChRIS plugin that..."
+      org.opencontainers.image.title="Cortical Thickness" \
+      org.opencontainers.image.description="A ChRIS plugin wrapper for cortical_thickness and friends"
 
-WORKDIR /usr/local/src/app
+WORKDIR /usr/local/src/pl-cortical_thickness
 
 COPY requirements.txt .
 RUN pip install -r requirements.txt
@@ -16,4 +16,4 @@ COPY . .
 ARG extras_require=none
 RUN pip install ".[${extras_require}]"
 
-CMD ["commandname", "--help"]
+CMD ["surf_results", "--help"]

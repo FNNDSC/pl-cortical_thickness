@@ -11,11 +11,18 @@ __version__ = __pkg.version
 
 
 DISPLAY_TITLE = r"""
-ChRIS Plugin Template Title
+       _                      _   _           _  _   _     _      _                        
+      | |                    | | (_)         | || | | |   (_)    | |                       
+ _ __ | |______ ___ ___  _ __| |_ _  ___ __ _| || |_| |__  _  ___| | ___ __   ___  ___ ___ 
+| '_ \| |______/ __/ _ \| '__| __| |/ __/ _` | || __| '_ \| |/ __| |/ / '_ \ / _ \/ __/ __|
+| |_) | |     | (_| (_) | |  | |_| | (_| (_| | || |_| | | | | (__|   <| | | |  __/\__ \__ \
+| .__/|_|      \___\___/|_|   \__|_|\___\__,_|_| \__|_| |_|_|\___|_|\_\_| |_|\___||___/___/
+| |                                          ______                                        
+|_|                                         |______|                                       
 """
 
 
-parser = ArgumentParser(description='cli description',
+parser = ArgumentParser(description='A ChRIS plugin wrapper for cortical_thickness and friends',
                         formatter_class=ArgumentDefaultsHelpFormatter)
 parser.add_argument('-n', '--name', default='foo',
                     help='argument which sets example output file name')
@@ -26,7 +33,7 @@ parser.add_argument('-V', '--version', action='version',
 # documentation: https://fnndsc.github.io/chris_plugin/chris_plugin.html#chris_plugin
 @chris_plugin(
     parser=parser,
-    title='My ChRIS plugin',
+    title='Cortical Thickness',
     category='',                 # ref. https://chrisstore.co/plugins
     min_memory_limit='100Mi',    # supported units: Mi, Gi
     min_cpu_limit='1000m',       # millicores, e.g. "1000m" = 1 CPU core
