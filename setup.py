@@ -8,7 +8,7 @@ setup(
     author_email='dev@babyMRI.org',
     url='https://github.com/FNNDSC/pl-cortical_thickness',
     py_modules=['surf_results'],
-    install_requires=['chris_plugin'],
+    install_requires=['chris_plugin', 'numpy', 'loguru'],
     license='MIT',
     entry_points={
         'console_scripts': [
