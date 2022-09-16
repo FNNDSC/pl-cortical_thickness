@@ -46,6 +46,8 @@ parser.add_argument('--angles-between-normals', default='angles_between_normals.
                     help='angles between normals output file name')
 parser.add_argument('--scaled-rad-angles', default='scaled_rad_angles.txt', type=str,
                     help='rad angles multiplied by tlink thickness output file name')
+parser.add_argument('--scaled-angles-between-normals', default='scaled_angles_between_normals.txt', type=str,
+                    help='scaled angles between normals output file name')
 parser.add_argument('-V', '--version', action='version',
                     version=f'%(prog)s {__version__}')
 
@@ -92,6 +94,7 @@ def process_one(input_dir: Path, output_dir: Path, options):
     rad_angles = output_dir / options.rad_angles
     norm_angles = output_dir / options.angles_between_normals
     scaled_rad_angles = output_dir / options.scaled_rad_angles
+    scaled_norm_angles = output_dir / options.scaled_angles_between_normals
 
     # external program calls
     tasks = (
@@ -121,6 +124,9 @@ def process_one(input_dir: Path, output_dir: Path, options):
     # scale rad angles by normalized thickness data
     scaled_rad_angles_data = rad_angles_data * normalized_thickness_data
     np.savetxt(scaled_rad_angles, scaled_rad_angles_data, fmt='%f')
+    # scale normal vector angles by normalized thickness data
+    scaled_norm_angles_data = norm_angles_data * normalized_thickness_data
+    np.savetxt(scaled_norm_angles, scaled_norm_angles_data, fmt='%f')
 
 
 def depth_potential_normals(input_filename: str | Path, dtype=np.float32):
